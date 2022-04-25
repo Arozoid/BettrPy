@@ -20,11 +20,12 @@ There will be a little build script for Linux on the main page but there isn't t
 
 ### What does the build script do?
 
-Here is a step by step thing it does:
-  1: Installs bettrpy.py
-  2: Gets all dependencies
-  3: Moves bettrpy.py to the usual site-directory folder
-  4: All done!
+Here is a step by step thing it does:  
+  
+  1: Installs bettrpy.py  
+  2: Gets all dependencies  
+  3: Moves bettrpy.py to the usual site-directory folder  
+  4: All done!  
 
 ### Dependencies
 
