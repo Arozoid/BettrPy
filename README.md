@@ -1,4 +1,7 @@
-# BettrPy
+# BettrPy 
+
+<img src="https://raw.githubusercontent.com/Arozoid/BettrPy/main/bp_png.png?token=GHSAT0AAAAAABT4QNA7PQ2B53RU7MQ6OQL2YTGGIJQ" width="100" height="100">
+
 
 BettrPy is supposed to make python code shorter the slightest bit and also add some other features.
 It is made with and is recommended to use Python 3 when using BettrPy.
