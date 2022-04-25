@@ -26,9 +26,9 @@ There will be a little build script made out of raw Python on the top of this pa
 Here is a step by step thing it does:  
   
   * Installs main.py 
-  * Gets all dependencies  
   * Moves main.py to the usual site-packages folder  
-  * All done!  
+  * Installs non-default dependencies
+  * All done!
 
 ### Dependencies
 
