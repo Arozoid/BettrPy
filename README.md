@@ -19,7 +19,8 @@ It is made with and is recommended to use Python 3 when using BettrPy.
 
 ## Installation
 
-There will be a little build script made out of raw Python on the top of this page!
+There will be a little build script made out of raw Python on the top of this page!  
+If you want an older release, just go to our **Releases** page.
 
 ### What does the build script do?
 
