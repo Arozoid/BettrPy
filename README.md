@@ -19,21 +19,19 @@ It is made with and is recommended to use Python 3 when using BettrPy.
 
 ## Installation
 
-There will be a little build script for Linux on the main page but there isn't too much support for Windows and MacOS yet.
+There will be a little build script made out of raw Python on the top of this page!
 
 ### What does the build script do?
 
 Here is a step by step thing it does:  
   
-  1: Installs bettrpy.py  
-  2: Gets all dependencies  
-  3: Moves bettrpy.py to the usual site-directory folder  
-  4: All done!  
+  * Installs main.py 
+  * Gets all dependencies  
+  * Moves main.py to the usual site-packages folder  
+  * All done!  
 
 ### Dependencies
 
-For all those people who are on MacOS or Windows,  
-the dependencies are:
   * wget
   * readline
   * random
