@@ -1,3 +1,5 @@
+# Make sure to run this as a super user!
+
 import requests
 import os
 import site
