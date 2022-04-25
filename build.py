@@ -1,4 +1,4 @@
-# Make sure to run this as a super user!
+# Make sure to run this as super user!
 
 import requests
 import os
@@ -77,13 +77,13 @@ time.sleep(1)
 # Find site-packages folder and make a directory
 print(f"{tpainter.attr(1)}{tpainter.fg(10)}\nMoving main.py\n{tpainter.attr()}{tpainter.fg()}")
 try:
-	site_folders = site.getsitepackages()
-	mkdir("bettrpy",site_folders[0])
+  site_folders = site.getsitepackages()
+  mkdir("bettrpy",site_folders[0])
 except:
  print("BuildError: For some random reason you dont have a site-packages folder..?")
  exit()
 try:
-  mvfile(f"{current_dir}/bettrpy/main.py",f"{site_folders[0]}/bettrpy")
+  mvfile(f"{current_dir}/bettrpy/__main.py__",f"{site_folders[0]}/bettrpy")
   rmdir(f"{current_dir}/bettrpy")
 except:
   print(f"{tpainter.fg(1)}BuildError: Something went wrong while transfering 'main.py'{tpainter.fg()}")
