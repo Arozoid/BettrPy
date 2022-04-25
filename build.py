@@ -26,15 +26,15 @@ class tpainter:
 def mkdir(name,path):
   mkdir = os.path.join(path,name)
   os.mkdir(mkdir)
-  print(f"mkdir: Created '{name}'")
+  print(f"{tpainter.fg(10)}mkdir: Created '{name}'{tpainter.fg()}")
 
 def mvfile(name,directory):
   os.rename(f"{name}", f"{directory}/{os.path.basename(name)}")
-  print(f"{tpainter.fg(2)}mvfile: Moved '{name}'{tpainter.fg()}")
+  print(f"{tpainter.fg(10)}mvfile: Moved '{name}'{tpainter.fg()}")
 
-def rmdir(self,directory):
+def rmdir(directory):
   os.rmdir(directory)
-  print(f"rmdir: Removed '{directory}'")
+  print(f"{tpainter.fg(9)}rmdir: Removed '{directory}'{tpainter.fg()}")
 
 # Introduce you to this build script <3
 print(tpainter.fg(29) + "----------------")
@@ -83,7 +83,7 @@ except:
  print("BuildError: For some random reason you dont have a site-packages folder..?")
  exit()
 try:
-  mvfile(f"{current_dir}/bettrpy/__main.py__",f"{site_folders[0]}/bettrpy")
+  mvfile(f"{current_dir}/bettrpy/__main__.py",f"{site_folders[0]}/bettrpy")
   rmdir(f"{current_dir}/bettrpy")
 except:
   print(f"{tpainter.fg(1)}BuildError: Something went wrong while transfering 'main.py'{tpainter.fg()}")
@@ -93,8 +93,9 @@ time.sleep(1)
 
 # Download all non-default dependencies
 try:
-  print(f"{tpainter.fg(2)}Installing wget..{tpainter.fg()}")
+  print(f"{tpainter.fg(2)}Installing wget..")
   Popen("pip install wget",shell=True)
+  print(f"{tpainter.fg()}")
 except:
   print(f"{tpainter.fg(1)}BuildError: Something broke while checking dependencies{tpainter.fg()}")
   exit()
@@ -102,5 +103,5 @@ except:
 time.sleep(1)
 
 # Yay! All done.
-print(f"{tpainter.attr(1)}{tpainter.fg(29)}Yay! This build script is finished.")
+print(f"{tpainter.attr(1)}{tpainter.fg(29)}Yay! This build script is finished.{tpainter.attr()}{tpainter.fg()}")
 exit()
