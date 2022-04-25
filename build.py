@@ -83,7 +83,7 @@ except:
  print("BuildError: For some random reason you dont have a site-packages folder..?")
  exit()
 try:
-  mvfile(f"{current_dir}/bettrpy/main.py","{site_folders[0]}/bettrpy")
+  mvfile(f"{current_dir}/bettrpy/main.py",f"{site_folders[0]}/bettrpy")
   rmdir(f"{current_dir}/bettrpy")
 except:
   print(f"{tpainter.fg(1)}BuildError: Something went wrong while transfering 'main.py'{tpainter.fg()}")
