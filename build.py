@@ -77,8 +77,8 @@ time.sleep(1)
 # Find site-packages folder and make a directory
 print(f"{tpainter.attr(1)}{tpainter.fg(10)}\nMoving main.py\n{tpainter.attr()}{tpainter.fg()}")
 try:
-site_folders = site.getsitepackages()
-mkdir("bettrpy",site_folders[0])
+	site_folders = site.getsitepackages()
+	mkdir("bettrpy",site_folders[0])
 except:
  print("BuildError: For some random reason you dont have a site-packages folder..?")
  exit()
