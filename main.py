@@ -306,3 +306,6 @@ class tpainter:
 
 	def color_list():
 		webbrowser.open("https://github.com/Arozoid/BettrPy/blob/main/color_list.txt")
+
+def bettrerror(error,reason):
+	print(f"{error}: {reason}")
