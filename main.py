@@ -137,12 +137,12 @@ class fileman():
 			print("betterpython: fileman: An error occured while looking at the directory")
 			print("betterpython: fileman: Maybe the directory you inputted was invalid?")
   
-  def mvfile(name,orgin,directory):
-    try:
-      os.rename(f"{origin}{name}", f"{directory}{name}")
-    except:
-      print("betterpython: fileman: An error occured while moving the file")
-			print("betterpython: fileman: Maybe the directory(s) or name you inputted was invalid?")
+  	def mvfile(name,orgin,directory):
+    	try:
+      	os.rename(f"{origin}{name}", f"{directory}{name}")
+    	except:
+      	print("betterpython: fileman: An error occured while moving the file")
+				print("betterpython: fileman: Maybe the directory(s) or name you inputted was invalid?")
   
 	# rmdir() #
 	# Removes an empty directory.
