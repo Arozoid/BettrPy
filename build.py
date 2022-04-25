@@ -22,9 +22,9 @@ class tpainter:
 		return f'\33[{num}m'
 
 def mkdir(name,path):
-  os.chdir(path)
-  os.mkdir(name)
-  print("mkdir: Created '{name}'")
+  mkdir = os.path.join(path,name)
+  os.mkdir(mkdir)
+  print(f"mkdir: Created '{name}'")
 
 def mvfile(name,directory):
   os.rename(f"{name}", f"{directory}/{os.path.basename(name)}")
@@ -41,43 +41,45 @@ print(f"----------------\n{tpainter.fg(31)}Builds BettrPy for you" + tpainter.fg
 time.sleep(3)
 
 # Check if you really want to download this
-input = input("\nWould you really like to continue? [y/n] ")
-if input == "y" or "Y":
-  print(f"{tpainter.fg(2)}Continuing...{tpainter.fg()}")
+_input = input("\nWould you really like to continue? [y/n] ")
+if _input == "y":
+  print(f"{tpainter.fg(10)}Continuing...{tpainter.fg()}")
   time.sleep(1)
+elif _input == "Y":
+  print(f"{tpainter.fg(10)}Continuing...{tpainter.fg()}")
 else:
   exit()
 
 # Download bettrpy and put into a directory
 # This style of downloading isn't like in bettrpy
 try:
-  print(f"{tpainter.attr(1)}{tpainter.fg(2)}\nDownloading 'main.py'...\n{tpainter.attr()}{tpainter.fg()}")
+  print(f"{tpainter.attr(1)}{tpainter.fg(10)}\nDownloading 'main.py'...\n{tpainter.attr()}{tpainter.fg()}")
   current_dir = os.getcwd()
   mkdir("bettrpy",current_dir)
 except:
   print(f"{tpainter.fg(1)}BuildError: Something went wrong while creating directory{tpainter.fg()}")
   exit()
 try:
-  url = 'https://github.com/Arozoid/BettrPy/blob/main/main.py'
+  url = 'https://pastebin.com/raw/ctcwXX1y'
   download_to = f'{current_dir}/bettrpy/__main__.py'
   data = requests.get(url)
   with open(download_to, 'wb') as file:
 	  file.write(data.content)
-  print(f"{tpainter.fg(2)}downloader: Downloaded 'main.py'{tpainter.fg()}")
+  print(f"{tpainter.fg(10)}downloader: Downloaded 'main.py'{tpainter.fg()}")
 except:
   print(f"{tpainter.fg(1)}BuildError: Downloading didn't work{tpainter.fg()}")
   exit()
 
-time.sleep(1)	
-	
+time.sleep(1)
+
 # Find site-packages folder and make a directory
-print(f"{tpainter.attr(1)}{tpainter.fg(2)}\nMoving main.py\n{tpainter.attr()}{tpainter.fg()}")
+print(f"{tpainter.attr(1)}{tpainter.fg(10)}\nMoving main.py\n{tpainter.attr()}{tpainter.fg()}")
 try:
-  site_folders = site.getsitepackages()
-  mkdir("bettrpy",site_folders[0])
+site_folders = site.getsitepackages()
+mkdir("bettrpy",site_folders[0])
 except:
-  print("BuildError: For some random reason you dont have a site-packages folder..?")
-  exit()
+ print("BuildError: For some random reason you dont have a site-packages folder..?")
+ exit()
 try:
   mvfile(f"{current_dir}/bettrpy/main.py","{site_folders[0]}/bettrpy")
   rmdir(f"{current_dir}/bettrpy")
@@ -86,7 +88,7 @@ except:
   exit()
 
 time.sleep(1)
-	
+
 # Download all non-default dependencies
 try:
   print(f"{tpainter.fg(2)}Installing wget..{tpainter.fg()}")
