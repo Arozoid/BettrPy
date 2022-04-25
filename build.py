@@ -68,6 +68,8 @@ except:
   print(f"{tpainter.fg(1)}BuildError: Downloading didn't work{tpainter.fg()}")
   exit()
 
+time.sleep(1)	
+	
 # Find site-packages folder and make a directory
 print(f"{tpainter.attr(1)}{tpainter.fg(2)}\nMoving main.py\n{tpainter.attr()}{tpainter.fg()}")
 try:
@@ -83,6 +85,8 @@ except:
   print(f"{tpainter.fg(1)}BuildError: Something went wrong while transfering 'main.py'{tpainter.fg()}")
   exit()
 
+time.sleep(1)
+	
 # Download all non-default dependencies
 try:
   print(f"{tpainter.fg(2)}Installing wget..{tpainter.fg()}")
@@ -90,6 +94,8 @@ try:
 except:
   print(f"{tpainter.fg(1)}BuildError: Something broke while checking dependencies{tpainter.fg()}")
   exit()
+
+time.sleep(1)
 
 # Yay! All done.
 print(f"{tpainter.attr(1)}{tpainter.fg(29)}Yay! This build script is finished.")
