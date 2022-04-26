@@ -1,6 +1,6 @@
 # BettrPy 
 
-<img src="https://github.com/Arozoid/BettrPy/blob/main/bp_png.png" width="100" height="100">
+<img src="https://github.com/Arozoid/BettrPy/blob/main/bettrpy_new_png.png" width="96" height="96">
 
 
 BettrPy is supposed to make python code shorter the slightest bit and also add some other features.
