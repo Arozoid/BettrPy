@@ -1,10 +1,12 @@
 # Make sure to run this as super user!
 
+#!/usr/bin/python
 import requests
 import os
 import site
 import time
-from subprocess import Popen
+from subprocess import Popen, call
+import threading
 
 # Creates ONLY the functions we need from bettrpy
 class tpainter:
@@ -37,13 +39,13 @@ def rmdir(directory):
   print(f"{tpainter.fg(9)}rmdir: Removed '{directory}'{tpainter.fg()}")
 
 # Introduce you to this build script <3
-print(tpainter.fg(29) + "----------------")
+print(tpainter.fg(29) + tpainter.attr(1) + "----------------")
 print("BettrPy Builder")
-print(f"----------------\n{tpainter.fg(31)}Builds BettrPy for you" + tpainter.fg())
+print(f"----------------\n{tpainter.fg(31)}Builds BettrPy for you" + tpainter.fg() + tpainter.attr())
 time.sleep(3)
 
 # Check if you really want to download this
-_input = input("\nWould you really like to continue? [y/n] ")
+_input = input(f"\n{tpainter.fg(11)}{tpainter.attr(1)}Would you really like to continue? [y/n] {tpainter.attr()}")
 if _input == "y":
   print(f"{tpainter.fg(10)}Continuing...{tpainter.fg()}")
   time.sleep(1)
@@ -63,7 +65,7 @@ except:
   exit()
 try:
   url = 'https://pastebin.com/raw/ctcwXX1y'
-  download_to = f'{current_dir}/bettrpy/__main__.py'
+  download_to = f'{current_dir}/bettrpy/bettrpy.py'
   data = requests.get(url)
   with open(download_to, 'wb') as file:
 	  file.write(data.content)
@@ -78,24 +80,24 @@ time.sleep(1)
 print(f"{tpainter.attr(1)}{tpainter.fg(10)}\nMoving main.py\n{tpainter.attr()}{tpainter.fg()}")
 try:
   site_folders = site.getsitepackages()
-  mkdir("bettrpy",site_folders[0])
 except:
  print("BuildError: For some random reason you dont have a site-packages folder..?")
  exit()
 try:
-  mvfile(f"{current_dir}/bettrpy/__main__.py",f"{site_folders[0]}/bettrpy")
+  mvfile(f"{current_dir}/bettrpy/bettrpy.py",f"{site_folders[0]}")
   rmdir(f"{current_dir}/bettrpy")
-except:
-  print(f"{tpainter.fg(1)}BuildError: Something went wrong while transfering 'main.py'{tpainter.fg()}")
+except PermissionError:
+  print(f"{tpainter.fg(1)}BuildError: You aren't running this as root!{tpainter.fg()}")
   exit()
 
 time.sleep(1)
 
 # Download all non-default dependencies
+print(f"\n{tpainter.fg(10)}{tpainter.attr(1)}Downloading dependencies{tpainter.attr()}{tpainter.fg()}\n")
 try:
-  print(f"{tpainter.fg(2)}Installing wget..")
-  Popen("pip install wget",shell=True)
-  print(f"{tpainter.fg()}")
+  print(f"{tpainter.fg(2)}Installing wget..\n")
+  call("pip install wget",shell=True)
+  print(f"\n{tpainter.attr(1)}Finished dependencies!{tpainter.attr()}\n")
 except:
   print(f"{tpainter.fg(1)}BuildError: Something broke while checking dependencies{tpainter.fg()}")
   exit()
@@ -103,5 +105,5 @@ except:
 time.sleep(1)
 
 # Yay! All done.
-print(f"{tpainter.attr(1)}{tpainter.fg(29)}Yay! This build script is finished.{tpainter.attr()}{tpainter.fg()}")
+print(f"{tpainter.attr(1)}{tpainter.fg(29)}Yay! This build script is finished.\n{tpainter.attr()}{tpainter.fg()}")
 exit()
